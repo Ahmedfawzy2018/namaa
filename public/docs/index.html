@@ -1,0 +1,2958 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Carefer Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.37.2.js"></script>
+
+    <script src="../docs/js/theme-default-3.37.2.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-user-login">
+                        <a href="#endpoints-POSTapi-user-login">POST api/user/login</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-most-frequent-trip">
+                        <a href="#endpoints-GETapi-most-frequent-trip">GET api/most-frequent-trip</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-reservations">
+                        <a href="#endpoints-GETapi-reservations">List Reservations</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-reservations">
+                        <a href="#endpoints-POSTapi-reservations">Reserve Bus</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-reservations--id-">
+                        <a href="#endpoints-GETapi-reservations--id-">Read Reservation</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-reservations--id-">
+                        <a href="#endpoints-PUTapi-reservations--id-">Update Reservation</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-reservations--id-">
+                        <a href="#endpoints-DELETEapi-reservations--id-">Update Reservation</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-buses">
+                        <a href="#endpoints-GETapi-buses">Display a listing of the resource.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-buses">
+                        <a href="#endpoints-POSTapi-buses">Store a newly created resource in storage.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-buses--id-">
+                        <a href="#endpoints-GETapi-buses--id-">Display the specified resource.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-buses--id-">
+                        <a href="#endpoints-PUTapi-buses--id-">Update the specified resource in storage.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-buses--id-">
+                        <a href="#endpoints-DELETEapi-buses--id-">Remove the specified resource from storage.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-routes">
+                        <a href="#endpoints-GETapi-routes">Display a listing of the resource.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-routes">
+                        <a href="#endpoints-POSTapi-routes">Store a newly created resource in storage.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-routes--id-">
+                        <a href="#endpoints-GETapi-routes--id-">Display the specified resource.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-routes--id-">
+                        <a href="#endpoints-PUTapi-routes--id-">Update the specified resource in storage.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-routes--id-">
+                        <a href="#endpoints-DELETEapi-routes--id-">Remove the specified resource from storage.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: April 24 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+            <h2 id="endpoints-POSTapi-user-login">POST api/user/login</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-user-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/user/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"mandy.jacobson@example.com\",
+    \"password\": \"minima\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/user/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "mandy.jacobson@example.com",
+    "password": "minima"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-user-login">
+</span>
+<span id="execution-results-POSTapi-user-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-user-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-user-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-user-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-user-login"></code></pre>
+</span>
+<form id="form-POSTapi-user-login" data-method="POST"
+      data-path="api/user/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-user-login"
+                    onclick="tryItOut('POSTapi-user-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-user-login"
+                    onclick="cancelTryOut('POSTapi-user-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-user-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/user/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-user-login"
+               value="mandy.jacobson@example.com"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-user-login"
+               value="minima"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="endpoints-GETapi-most-frequent-trip">GET api/most-frequent-trip</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-most-frequent-trip">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/most-frequent-trip" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/most-frequent-trip"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-most-frequent-trip">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-most-frequent-trip" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-most-frequent-trip"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-most-frequent-trip"></code></pre>
+</span>
+<span id="execution-error-GETapi-most-frequent-trip" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-most-frequent-trip"></code></pre>
+</span>
+<form id="form-GETapi-most-frequent-trip" data-method="GET"
+      data-path="api/most-frequent-trip"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-most-frequent-trip', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-most-frequent-trip"
+                    onclick="tryItOut('GETapi-most-frequent-trip');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-most-frequent-trip"
+                    onclick="cancelTryOut('GETapi-most-frequent-trip');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-most-frequent-trip" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/most-frequent-trip</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-reservations">List Reservations</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-reservations">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/reservations?limit=12" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/reservations"
+);
+
+const params = {
+    "limit": "12",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-reservations">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-reservations" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-reservations"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-reservations"></code></pre>
+</span>
+<span id="execution-error-GETapi-reservations" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-reservations"></code></pre>
+</span>
+<form id="form-GETapi-reservations" data-method="GET"
+      data-path="api/reservations"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-reservations', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-reservations"
+                    onclick="tryItOut('GETapi-reservations');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-reservations"
+                    onclick="cancelTryOut('GETapi-reservations');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-reservations" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/reservations</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>limit</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="limit"
+               data-endpoint="GETapi-reservations"
+               value="12"
+               data-component="query" hidden>
+    <br>
+<p>Number of records per page .</p>
+            </p>
+                </form>
+
+            <h2 id="endpoints-POSTapi-reservations">Reserve Bus</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-reservations">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/reservations" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"bus_id\": 11,
+    \"route_id\": 6,
+    \"seats\": \"beatae\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/reservations"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "bus_id": 11,
+    "route_id": 6,
+    "seats": "beatae"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-reservations">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-reservations" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-reservations"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-reservations"></code></pre>
+</span>
+<span id="execution-error-POSTapi-reservations" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-reservations"></code></pre>
+</span>
+<form id="form-POSTapi-reservations" data-method="POST"
+      data-path="api/reservations"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-reservations', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-reservations"
+                    onclick="tryItOut('POSTapi-reservations');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-reservations"
+                    onclick="cancelTryOut('POSTapi-reservations');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-reservations" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/reservations</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>bus_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="bus_id"
+               data-endpoint="POSTapi-reservations"
+               value="11"
+               data-component="body" hidden>
+    <br>
+<p>Bus ID which we need to reserve.</p>
+        </p>
+                <p>
+            <b><code>route_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="route_id"
+               data-endpoint="POSTapi-reservations"
+               value="6"
+               data-component="body" hidden>
+    <br>
+<p>Route ID which we need to Take.</p>
+        </p>
+                <p>
+            <b><code>seats</code></b>&nbsp;&nbsp;<small>required</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="seats"
+               data-endpoint="POSTapi-reservations"
+               value="beatae"
+               data-component="body" hidden>
+    <br>
+<p>array Seats IDs.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-GETapi-reservations--id-">Read Reservation</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-reservations--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/reservations/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/reservations/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-reservations--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-reservations--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-reservations--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-reservations--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-reservations--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-reservations--id-"></code></pre>
+</span>
+<form id="form-GETapi-reservations--id-" data-method="GET"
+      data-path="api/reservations/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-reservations--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-reservations--id-"
+                    onclick="tryItOut('GETapi-reservations--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-reservations--id-"
+                    onclick="cancelTryOut('GETapi-reservations--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-reservations--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/reservations/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-reservations--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the reservation.</p>
+            </p>
+                    <p>
+                <b><code>reservation</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="reservation"
+               data-endpoint="GETapi-reservations--id-"
+               value="14"
+               data-component="url" hidden>
+    <br>
+<p>Reservation ID.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-PUTapi-reservations--id-">Update Reservation</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-reservations--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/reservations/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"status\": 16
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/reservations/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "status": 16
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-reservations--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;user&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Priscilla Koss&quot;
+            },
+            &quot;bus&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Bus One&quot;,
+                &quot;capacity&quot;: 20,
+                &quot;type&quot;: &quot;long&quot;,
+                &quot;status&quot;: &quot;open&quot;,
+                &quot;seats&quot;: [
+                    {
+                        &quot;id&quot;: 1,
+                        &quot;seat_number&quot;: &quot;A1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 2,
+                        &quot;seat_number&quot;: &quot;A2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 3,
+                        &quot;seat_number&quot;: &quot;A3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 4,
+                        &quot;seat_number&quot;: &quot;A4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 5,
+                        &quot;seat_number&quot;: &quot;A5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 6,
+                        &quot;seat_number&quot;: &quot;A6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;seat_number&quot;: &quot;A7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 8,
+                        &quot;seat_number&quot;: &quot;A8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;seat_number&quot;: &quot;A9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 10,
+                        &quot;seat_number&quot;: &quot;A10&quot;
+                    },
+                    {
+                        &quot;id&quot;: 11,
+                        &quot;seat_number&quot;: &quot;B1&quot;
+                    },
+                    {
+                        &quot;id&quot;: 12,
+                        &quot;seat_number&quot;: &quot;B2&quot;
+                    },
+                    {
+                        &quot;id&quot;: 13,
+                        &quot;seat_number&quot;: &quot;B3&quot;
+                    },
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;seat_number&quot;: &quot;B4&quot;
+                    },
+                    {
+                        &quot;id&quot;: 15,
+                        &quot;seat_number&quot;: &quot;B5&quot;
+                    },
+                    {
+                        &quot;id&quot;: 16,
+                        &quot;seat_number&quot;: &quot;B6&quot;
+                    },
+                    {
+                        &quot;id&quot;: 17,
+                        &quot;seat_number&quot;: &quot;B7&quot;
+                    },
+                    {
+                        &quot;id&quot;: 18,
+                        &quot;seat_number&quot;: &quot;B8&quot;
+                    },
+                    {
+                        &quot;id&quot;: 19,
+                        &quot;seat_number&quot;: &quot;B9&quot;
+                    },
+                    {
+                        &quot;id&quot;: 20,
+                        &quot;seat_number&quot;: &quot;B10&quot;
+                    }
+                ]
+            },
+            &quot;route&quot;: {
+                &quot;id&quot;: 2,
+                &quot;pickup_station&quot;: &quot;Cairo&quot;,
+                &quot;destination_station&quot;: &quot;Aswan&quot;,
+                &quot;distance&quot;: &quot;150&quot;
+            },
+            &quot;seats_count&quot;: 6,
+            &quot;seats_price&quot;: &quot;10.00&quot;,
+            &quot;total&quot;: &quot;54.00&quot;,
+            &quot;discount&quot;: &quot;6.00&quot;,
+            &quot;email&quot;: &quot;xcole@example.com&quot;,
+            &quot;reservation_date&quot;: &quot;2023-04-19&quot;,
+            &quot;cancelled_date&quot;: &quot;2023-04-19 22:57:43&quot;,
+            &quot;status&quot;: &quot;cancelled&quot;,
+            &quot;seats&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;seat_number&quot;: &quot;A1&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;seat_number&quot;: &quot;A2&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;seat_number&quot;: &quot;A3&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;seat_number&quot;: &quot;A4&quot;
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;seat_number&quot;: &quot;A5&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;seat_number&quot;: &quot;A6&quot;
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-reservations--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-reservations--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-reservations--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-reservations--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-reservations--id-"></code></pre>
+</span>
+<form id="form-PUTapi-reservations--id-" data-method="PUT"
+      data-path="api/reservations/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-reservations--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-reservations--id-"
+                    onclick="tryItOut('PUTapi-reservations--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-reservations--id-"
+                    onclick="cancelTryOut('PUTapi-reservations--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-reservations--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/reservations/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/reservations/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-reservations--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the reservation.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="status"
+               data-endpoint="PUTapi-reservations--id-"
+               value="16"
+               data-component="body" hidden>
+    <br>
+<p>Status of Reservation need to chnage.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-DELETEapi-reservations--id-">Update Reservation</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-reservations--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/reservations/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/reservations/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-reservations--id-">
+</span>
+<span id="execution-results-DELETEapi-reservations--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-reservations--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-reservations--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-reservations--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-reservations--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-reservations--id-" data-method="DELETE"
+      data-path="api/reservations/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-reservations--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-reservations--id-"
+                    onclick="tryItOut('DELETEapi-reservations--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-reservations--id-"
+                    onclick="cancelTryOut('DELETEapi-reservations--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-reservations--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/reservations/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-reservations--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the reservation.</p>
+            </p>
+                    <p>
+                <b><code>reservation</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="reservation"
+               data-endpoint="DELETEapi-reservations--id-"
+               value="6"
+               data-component="url" hidden>
+    <br>
+<p>Which one we need to delete.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-buses">Display a listing of the resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-buses">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/buses" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/buses"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-buses">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-buses" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-buses"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-buses"></code></pre>
+</span>
+<span id="execution-error-GETapi-buses" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-buses"></code></pre>
+</span>
+<form id="form-GETapi-buses" data-method="GET"
+      data-path="api/buses"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-buses', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-buses"
+                    onclick="tryItOut('GETapi-buses');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-buses"
+                    onclick="cancelTryOut('GETapi-buses');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-buses" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/buses</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-buses">Store a newly created resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-buses">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/buses" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/buses"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-buses">
+</span>
+<span id="execution-results-POSTapi-buses" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-buses"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-buses"></code></pre>
+</span>
+<span id="execution-error-POSTapi-buses" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-buses"></code></pre>
+</span>
+<form id="form-POSTapi-buses" data-method="POST"
+      data-path="api/buses"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-buses', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-buses"
+                    onclick="tryItOut('POSTapi-buses');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-buses"
+                    onclick="cancelTryOut('POSTapi-buses');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-buses" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/buses</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-buses--id-">Display the specified resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-buses--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/buses/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/buses/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-buses--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-buses--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-buses--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-buses--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-buses--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-buses--id-"></code></pre>
+</span>
+<form id="form-GETapi-buses--id-" data-method="GET"
+      data-path="api/buses/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-buses--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-buses--id-"
+                    onclick="tryItOut('GETapi-buses--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-buses--id-"
+                    onclick="cancelTryOut('GETapi-buses--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-buses--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/buses/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-buses--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the bus.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-PUTapi-buses--id-">Update the specified resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-buses--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/buses/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/buses/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-buses--id-">
+</span>
+<span id="execution-results-PUTapi-buses--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-buses--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-buses--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-buses--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-buses--id-"></code></pre>
+</span>
+<form id="form-PUTapi-buses--id-" data-method="PUT"
+      data-path="api/buses/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-buses--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-buses--id-"
+                    onclick="tryItOut('PUTapi-buses--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-buses--id-"
+                    onclick="cancelTryOut('PUTapi-buses--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-buses--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/buses/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/buses/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-buses--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the bus.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-DELETEapi-buses--id-">Remove the specified resource from storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-buses--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/buses/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/buses/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-buses--id-">
+</span>
+<span id="execution-results-DELETEapi-buses--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-buses--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-buses--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-buses--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-buses--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-buses--id-" data-method="DELETE"
+      data-path="api/buses/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-buses--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-buses--id-"
+                    onclick="tryItOut('DELETEapi-buses--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-buses--id-"
+                    onclick="cancelTryOut('DELETEapi-buses--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-buses--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/buses/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-buses--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the bus.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-routes">Display a listing of the resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-routes">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/routes" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/routes"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-routes">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-routes" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-routes"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-routes"></code></pre>
+</span>
+<span id="execution-error-GETapi-routes" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-routes"></code></pre>
+</span>
+<form id="form-GETapi-routes" data-method="GET"
+      data-path="api/routes"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-routes', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-routes"
+                    onclick="tryItOut('GETapi-routes');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-routes"
+                    onclick="cancelTryOut('GETapi-routes');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-routes" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/routes</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-routes">Store a newly created resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-routes">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/routes" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/routes"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-routes">
+</span>
+<span id="execution-results-POSTapi-routes" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-routes"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-routes"></code></pre>
+</span>
+<span id="execution-error-POSTapi-routes" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-routes"></code></pre>
+</span>
+<form id="form-POSTapi-routes" data-method="POST"
+      data-path="api/routes"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-routes', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-routes"
+                    onclick="tryItOut('POSTapi-routes');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-routes"
+                    onclick="cancelTryOut('POSTapi-routes');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-routes" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/routes</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-routes--id-">Display the specified resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-routes--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/routes/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/routes/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-routes--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-routes--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-routes--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-routes--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-routes--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-routes--id-"></code></pre>
+</span>
+<form id="form-GETapi-routes--id-" data-method="GET"
+      data-path="api/routes/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-routes--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-routes--id-"
+                    onclick="tryItOut('GETapi-routes--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-routes--id-"
+                    onclick="cancelTryOut('GETapi-routes--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-routes--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/routes/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-routes--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the route.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-PUTapi-routes--id-">Update the specified resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-routes--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/routes/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/routes/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-routes--id-">
+</span>
+<span id="execution-results-PUTapi-routes--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-routes--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-routes--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-routes--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-routes--id-"></code></pre>
+</span>
+<form id="form-PUTapi-routes--id-" data-method="PUT"
+      data-path="api/routes/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-routes--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-routes--id-"
+                    onclick="tryItOut('PUTapi-routes--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-routes--id-"
+                    onclick="cancelTryOut('PUTapi-routes--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-routes--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/routes/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/routes/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-routes--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the route.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-DELETEapi-routes--id-">Remove the specified resource from storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-routes--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/routes/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/routes/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-routes--id-">
+</span>
+<span id="execution-results-DELETEapi-routes--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-routes--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-routes--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-routes--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-routes--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-routes--id-" data-method="DELETE"
+      data-path="api/routes/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-routes--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-routes--id-"
+                    onclick="tryItOut('DELETEapi-routes--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-routes--id-"
+                    onclick="cancelTryOut('DELETEapi-routes--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-routes--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/routes/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-routes--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the route.</p>
+            </p>
+                    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

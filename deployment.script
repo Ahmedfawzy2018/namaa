@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Define environment variables OR copy the .env.example to .env
+APP_NAME=my-laravel-app
+APP_ENV=production
+APP_KEY=your-app-key
+APP_DEBUG=false
+APP_URL=https://example.com
+JWT_SECRET=
+
+# Clone the latest code from the Git repository
+git clone https://github.com/Ahmedfawzy2018/Carefer.git /var/www/html/${APP_NAME}
+cd /var/www/html/${APP_NAME}
+
+# Install dependencies
+composer install --optimize-autoloader --no-dev
+
+# Generate the application key
+php artisan key:generate --force
+
+# Clear the cache
+php artisan cache:clear
+php artisan config:clear
+
+# Set the correct permissions
+chgrp -R www-data storage bootstrap/cache
+chmod -R ug+rwx storage bootstrap/cache
+
+# Run database migrations and seed the database
+php artisan migrate --force --seed
+

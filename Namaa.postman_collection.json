@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "7b49a99a-b0ad-44ec-b08d-493432172a3e",
+		"name": "Namaa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14765345",
+		"_collection_link": "https://warped-astronaut-187213.postman.co/workspace/SMS~c5018955-7b4b-49fa-acf1-b368b2bfaced/collection/14765345-7b49a99a-b0ad-44ec-b08d-493432172a3e?action=share&source=collection_link&creator=14765345"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ahmed Fawzy",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahmed@fawzy.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ahmed@fawzy.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTcwMDczMzg2NSwiZXhwIjoxNzAwNzM3NDY1LCJuYmYiOjE3MDA3MzM4NjUsImp0aSI6IkZKUG9kWHM0V0pLcUpsNVciLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ru9VcDR9f4eWWbksZDcMdsJ9A5qgkt9HLcHqJc7BKNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Test Article",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Hi I am article",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/articles/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTcwMDczMzg2NSwiZXhwIjoxNzAwNzM3NDY1LCJuYmYiOjE3MDA3MzM4NjUsImp0aSI6IkZKUG9kWHM0V0pLcUpsNVciLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ru9VcDR9f4eWWbksZDcMdsJ9A5qgkt9HLcHqJc7BKNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "Hi I am comment",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/articles/1/comment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles",
+								"1",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTcwMDczMzg2NSwiZXhwIjoxNzAwNzM3NDY1LCJuYmYiOjE3MDA3MzM4NjUsImp0aSI6IkZKUG9kWHM0V0pLcUpsNVciLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ru9VcDR9f4eWWbksZDcMdsJ9A5qgkt9HLcHqJc7BKNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "Hi I am comment",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/articles/1/approve",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles",
+								"1",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTcwMDczMzg2NSwiZXhwIjoxNzAwNzM3NDY1LCJuYmYiOjE3MDA3MzM4NjUsImp0aSI6IkZKUG9kWHM0V0pLcUpsNVciLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ru9VcDR9f4eWWbksZDcMdsJ9A5qgkt9HLcHqJc7BKNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Test Article",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Hi I am article",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/articles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTcwMDczOTEwNCwiZXhwIjoxNzAwNzQyNzA0LCJuYmYiOjE3MDA3MzkxMDQsImp0aSI6IjM5akVsWktuazhLYkYzQjAiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.9gXkb8ro1j0LrP6lWRDmspSz_IB1eaIA0u7Ct0kggZY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/articles/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTcwMDczMzg2NSwiZXhwIjoxNzAwNzM3NDY1LCJuYmYiOjE3MDA3MzM4NjUsImp0aSI6IkZKUG9kWHM0V0pLcUpsNVciLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ru9VcDR9f4eWWbksZDcMdsJ9A5qgkt9HLcHqJc7BKNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/articles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTcwMDczMzg2NSwiZXhwIjoxNzAwNzM3NDY1LCJuYmYiOjE3MDA3MzM4NjUsImp0aSI6IkZKUG9kWHM0V0pLcUpsNVciLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ru9VcDR9f4eWWbksZDcMdsJ9A5qgkt9HLcHqJc7BKNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/articles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,2273 @@
+openapi: 3.0.3
+info:
+  title: Carefer
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user/login:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: mandy.jacobson@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: minima
+              required:
+                - email
+                - password
+      security: []
+  /api/most-frequent-trip:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/reservations:
+    get:
+      summary: 'List Reservations'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: limit
+          description: 'Number of records per page .'
+          example: 12
+          required: false
+          schema:
+            type: integer
+            description: 'Number of records per page .'
+            example: 12
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Reserve Bus'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bus_id:
+                  type: integer
+                  description: 'Bus ID which we need to reserve.'
+                  example: 11
+                route_id:
+                  type: integer
+                  description: 'Route ID which we need to Take.'
+                  example: 6
+                seats:
+                  type: required
+                  description: 'array Seats IDs.'
+                  example: beatae
+              required:
+                - bus_id
+                - route_id
+      security: []
+  '/api/reservations/{id}':
+    get:
+      summary: 'Read Reservation'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update Reservation'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                    -
+                      id: 1
+                      user:
+                        id: 1
+                        name: 'Priscilla Koss'
+                      bus:
+                        id: 1
+                        name: 'Bus One'
+                        capacity: 20
+                        type: long
+                        status: open
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                          -
+                            id: 7
+                            seat_number: A7
+                          -
+                            id: 8
+                            seat_number: A8
+                          -
+                            id: 9
+                            seat_number: A9
+                          -
+                            id: 10
+                            seat_number: A10
+                          -
+                            id: 11
+                            seat_number: B1
+                          -
+                            id: 12
+                            seat_number: B2
+                          -
+                            id: 13
+                            seat_number: B3
+                          -
+                            id: 14
+                            seat_number: B4
+                          -
+                            id: 15
+                            seat_number: B5
+                          -
+                            id: 16
+                            seat_number: B6
+                          -
+                            id: 17
+                            seat_number: B7
+                          -
+                            id: 18
+                            seat_number: B8
+                          -
+                            id: 19
+                            seat_number: B9
+                          -
+                            id: 20
+                            seat_number: B10
+                      route:
+                        id: 2
+                        pickup_station: Cairo
+                        destination_station: Aswan
+                        distance: '150'
+                      seats_count: 6
+                      seats_price: '10.00'
+                      total: '54.00'
+                      discount: '6.00'
+                      email: xcole@example.com
+                      reservation_date: '2023-04-19'
+                      cancelled_date: '2023-04-19 22:57:43'
+                      status: cancelled
+                      seats:
+                        -
+                          id: 1
+                          seat_number: A1
+                        -
+                          id: 2
+                          seat_number: A2
+                        -
+                          id: 3
+                          seat_number: A3
+                        -
+                          id: 4
+                          seat_number: A4
+                        -
+                          id: 5
+                          seat_number: A5
+                        -
+                          id: 6
+                          seat_number: A6
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                      -
+                        id: 1
+                        user:
+                          id: 1
+                          name: 'Priscilla Koss'
+                        bus:
+                          id: 1
+                          name: 'Bus One'
+                          capacity: 20
+                          type: long
+                          status: open
+                          seats:
+                            -
+                              id: 1
+                              seat_number: A1
+                            -
+                              id: 2
+                              seat_number: A2
+                            -
+                              id: 3
+                              seat_number: A3
+                            -
+                              id: 4
+                              seat_number: A4
+                            -
+                              id: 5
+                              seat_number: A5
+                            -
+                              id: 6
+                              seat_number: A6
+                            -
+                              id: 7
+                              seat_number: A7
+                            -
+                              id: 8
+                              seat_number: A8
+                            -
+                              id: 9
+                              seat_number: A9
+                            -
+                              id: 10
+                              seat_number: A10
+                            -
+                              id: 11
+                              seat_number: B1
+                            -
+                              id: 12
+                              seat_number: B2
+                            -
+                              id: 13
+                              seat_number: B3
+                            -
+                              id: 14
+                              seat_number: B4
+                            -
+                              id: 15
+                              seat_number: B5
+                            -
+                              id: 16
+                              seat_number: B6
+                            -
+                              id: 17
+                              seat_number: B7
+                            -
+                              id: 18
+                              seat_number: B8
+                            -
+                              id: 19
+                              seat_number: B9
+                            -
+                              id: 20
+                              seat_number: B10
+                        route:
+                          id: 2
+                          pickup_station: Cairo
+                          destination_station: Aswan
+                          distance: '150'
+                        seats_count: 6
+                        seats_price: '10.00'
+                        total: '54.00'
+                        discount: '6.00'
+                        email: xcole@example.com
+                        reservation_date: '2023-04-19'
+                        cancelled_date: '2023-04-19 22:57:43'
+                        status: cancelled
+                        seats:
+                          -
+                            id: 1
+                            seat_number: A1
+                          -
+                            id: 2
+                            seat_number: A2
+                          -
+                            id: 3
+                            seat_number: A3
+                          -
+                            id: 4
+                            seat_number: A4
+                          -
+                            id: 5
+                            seat_number: A5
+                          -
+                            id: 6
+                            seat_number: A6
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  description: 'Status of Reservation need to chnage.'
+                  example: 16
+              required:
+                - status
+      security: []
+    delete:
+      summary: 'Update Reservation'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the reservation.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: reservation
+        description: 'Reservation ID.'
+        example: 14
+        required: true
+        schema:
+          type: integer
+  /api/buses:
+    get:
+      summary: 'Display a listing of the resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/buses/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the bus.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/routes:
+    get:
+      summary: 'Display a listing of the resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/routes/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the route.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''

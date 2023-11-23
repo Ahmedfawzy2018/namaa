@@ -1,0 +1,732 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Carefer",
+        "_postman_id": "ed58f6e3-7635-4dd9-8ff5-94554f3c93df",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/user\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"mandy.jacobson@example.com\",\"password\":\"minima\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/most-frequent-trip",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/most-frequent-trip",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/most-frequent-trip"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List Reservations",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reservations",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "12",
+                                    "description": "Number of records per page .",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/reservations?limit=12"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]},{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]}]}",
+                            "name": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "Reserve Bus",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reservations",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reservations"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"bus_id\":11,\"route_id\":6,\"seats\":\"beatae\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]},{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]}]}",
+                            "name": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "Read Reservation",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reservations\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reservations\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the reservation."
+                                },
+                                {
+                                    "id": "reservation",
+                                    "key": "reservation",
+                                    "value": "14",
+                                    "description": "Reservation ID."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]},{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]}]}",
+                            "name": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Reservation",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reservations\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reservations\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the reservation."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"status\":16}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]},{\"id\":1,\"user\":{\"id\":1,\"name\":\"Priscilla Koss\"},\"bus\":{\"id\":1,\"name\":\"Bus One\",\"capacity\":20,\"type\":\"long\",\"status\":\"open\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"},{\"id\":7,\"seat_number\":\"A7\"},{\"id\":8,\"seat_number\":\"A8\"},{\"id\":9,\"seat_number\":\"A9\"},{\"id\":10,\"seat_number\":\"A10\"},{\"id\":11,\"seat_number\":\"B1\"},{\"id\":12,\"seat_number\":\"B2\"},{\"id\":13,\"seat_number\":\"B3\"},{\"id\":14,\"seat_number\":\"B4\"},{\"id\":15,\"seat_number\":\"B5\"},{\"id\":16,\"seat_number\":\"B6\"},{\"id\":17,\"seat_number\":\"B7\"},{\"id\":18,\"seat_number\":\"B8\"},{\"id\":19,\"seat_number\":\"B9\"},{\"id\":20,\"seat_number\":\"B10\"}]},\"route\":{\"id\":2,\"pickup_station\":\"Cairo\",\"destination_station\":\"Aswan\",\"distance\":\"150\"},\"seats_count\":6,\"seats_price\":\"10.00\",\"total\":\"54.00\",\"discount\":\"6.00\",\"email\":\"xcole@example.com\",\"reservation_date\":\"2023-04-19\",\"cancelled_date\":\"2023-04-19 22:57:43\",\"status\":\"cancelled\",\"seats\":[{\"id\":1,\"seat_number\":\"A1\"},{\"id\":2,\"seat_number\":\"A2\"},{\"id\":3,\"seat_number\":\"A3\"},{\"id\":4,\"seat_number\":\"A4\"},{\"id\":5,\"seat_number\":\"A5\"},{\"id\":6,\"seat_number\":\"A6\"}]}]}",
+                            "name": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Reservation",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/reservations\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/reservations\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the reservation."
+                                },
+                                {
+                                    "id": "reservation",
+                                    "key": "reservation",
+                                    "value": "6",
+                                    "description": "Which one we need to delete."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buses",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/buses"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buses",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/buses"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buses\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/buses\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the bus."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buses\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/buses\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the bus."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buses\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/buses\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the bus."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/routes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/routes"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/routes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/routes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/routes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/routes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the route."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/routes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/routes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the route."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/routes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/routes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the route."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
